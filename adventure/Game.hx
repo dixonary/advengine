@@ -159,7 +159,7 @@ class Game extends FlxState {
         Global.currentRoom = room;
         roomLayer.add(room);
 
-        var p = room.get("player");
+        var p = room.get(Player);
         if(pX!=null&&pY!=null) {
             var pos = p.roomPos(pX,pY);
             p.x = pos.x; p.y=pos.y;
