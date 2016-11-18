@@ -16,7 +16,7 @@ class Block extends Object {
     public function new(X:Int) {
         super(X,0,"block");
         customName="";
-        immovable=true;
+        immovable = true;
         visible = false;
     }
 
