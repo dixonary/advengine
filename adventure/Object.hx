@@ -183,10 +183,3 @@ enum Direction {
     Y;
     BOTH;
 }
-
-enum Layer {
-    ROOM;
-    BACK;
-    CHAR;
-    FORE;
-}
