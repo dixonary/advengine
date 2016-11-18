@@ -27,8 +27,7 @@ class Room extends Object {
     public function v_leave() {
         for(o in objects) {
             cast(FlxG.state,Game).layers.get(o.layer).remove(o);
-            if(o.is(Character)) cast(o,Character).clearSpeeches();
-            o.killTimers();
+            o.clearSpeeches();
         }
         if(field("leave") != null)
             callMethod(field("leave"), []);
