@@ -85,8 +85,7 @@ class Game extends FlxState {
             var os = Global.currentRoom.objects.copy();
             for(o in Global.inventory.objects) if(o != objUsing) os.push(o);
             var k = os.find(function(o) {
-                return o.n != "player"
-                    && o.n != ""
+                return o.name != "player"
                     && o.hidden == false
                     && o.overlapsPoint(FlxG.mouse.getPosition())
                     && o.isCursorOverPixels();
