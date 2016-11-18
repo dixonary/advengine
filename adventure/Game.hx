@@ -116,13 +116,13 @@ class Game extends FlxState {
             // Left/right click with object in hand
             else {
                 var p = FlxG.mouse.getPosition();
-                Global.objUsing.x = p.x-objUsing.width/2;
-                Global.objUsing.y = p.y-objUsing.width/2;
+                Global.objUsing.x = p.x-Global.objUsing.width/2;
+                Global.objUsing.y = p.y-Global.objUsing.width/2;
                 FlxG.mouse.visible = false;
                 if(FlxG.mouse.justPressed){
                     if(k != null) {
-                        objUsing.v_useOn(k);
-                        objUsing = null;
+                        Global.objUsing.v_useOn(k);
+                        Global.objUsing = null;
                         FlxG.mouse.visible = true;
                     }
                 }
