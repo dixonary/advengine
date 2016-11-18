@@ -1,0 +1,11 @@
+{
+    "name"          : "adventure-engine",
+    "url"           : "https://github.com/dixonary/adventure-engine",
+    "license"       : "Public",
+    "tags"          : ["cpp","neko","java","system","cross","native", "game", "games", "adventure"],
+    "description"   : "A point and click adventure game engine.",
+    "version"       : "1.0.0-alpha",
+    "releasenote"   : "First release, trust nothing and nobody.",
+    "contributors"  : "Dixonary",
+    "dependencies"  : {"flixel":"4.1.0"}
+}
