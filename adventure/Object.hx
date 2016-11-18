@@ -123,18 +123,18 @@ class Object extends FlxSprite {
         var ob = room.get(other);
 
         var nx = 0.0;
-        if(x < ob.x - dist - width)
-            nx = ob.x - dist - width;
-        else if(x > ob.x + ob.width + dist)
-            nx = ob.x + ob.width + dist;
+        if(x < ob.x  - width)
+            nx = ob.x  - width;
+        else if(x > ob.x + ob.width )
+            nx = ob.x + ob.width ;
         else
             nx = x;
 
         var ny = 0.0;
-        if(y < ob.y - dist - height)
-            ny = ob.y - dist - height;
-        else if(y > ob.y + ob.height + dist)
-            ny = ob.y + ob.height + dist;
+        if(y < ob.y  - height)
+            ny = ob.y  - height;
+        else if(y > ob.y + ob.height )
+            ny = ob.y + ob.height ;
         else
             ny = y;
 
