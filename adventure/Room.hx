@@ -4,6 +4,7 @@ import flixel.FlxG;
 using Reflect;
 using Type;
 using Std;
+using Lambda;
 
 class Room extends Object {
 
