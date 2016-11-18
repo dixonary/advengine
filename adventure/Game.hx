@@ -39,8 +39,15 @@ class Game extends FlxState {
     var charLayer:FlxGroup = new FlxGroup();
     var foreLayer:FlxGroup = new FlxGroup();
 
+    var startingScreen:Class<Room>;
+
     // Set of layers (can access publically)
     public var layers:Map<Definitions.Layer, FlxGroup> = new Map();
+
+    public function new(screen:Class<Room>) {
+       startingScreen = screen;
+       super();
+    }
 
     override public function create():Void {
 
@@ -58,6 +65,8 @@ class Game extends FlxState {
         nameText.setFormat("assets/fonts/PIXELADE.TTF");
         nameText.size = 40;
         add(nameText);
+
+        switchRoom(startingScreen);
 
         // Create and add countdown timer (hidden and paused by default)
         add(Global.countdown);
@@ -144,7 +153,7 @@ class Game extends FlxState {
         }
 
         if(Global.rooms.get(R) == null) {
-            Global.rooms.set(R, R.resolveClass().createInstance([]));
+            Global.rooms.set(R, R.createInstance([]));
             Global.currentRoom = Global.rooms.get(R);
             Global.rooms.get(R).create();
         }

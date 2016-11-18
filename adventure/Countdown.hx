@@ -1,4 +1,4 @@
-package;
+package adventure;
 
 import flixel.text.FlxText;
 import flixel.FlxG;

@@ -1,3 +1,4 @@
+package adventure;
 using Objects;
 using Rooms;
 using Definitions;

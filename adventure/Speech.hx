@@ -1,3 +1,5 @@
+package adventure;
+
 import flixel.group.FlxSpriteGroup;
 import flixel.text.FlxText;
 import flixel.FlxG;
