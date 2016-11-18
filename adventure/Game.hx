@@ -135,10 +135,6 @@ class Game extends FlxState {
         // Hide names of objects if you can't interact
         nameText.visible = Global.canInteract;
 
-        prevLeft  = FlxG.mouse.pressed;
-        prevRight = FlxG.mouse.pressedRight;
-
-
     }
 
     public function switchRoom(R:Class<Room>, ?pX:Int, ?pY:Int) {
