@@ -53,10 +53,10 @@ class Game extends FlxState {
         add(backLayer);
         add(charLayer);
         add(foreLayer);
-        layers.set(Definitions.Layer.ROOM, roomLayer);
-        layers.set(Definitions.Layer.BACK, backLayer);
-        layers.set(Definitions.Layer.CHAR, charLayer);
-        layers.set(Definitions.Layer.FORE, foreLayer);
+        layers.set(Layer.ROOM, roomLayer);
+        layers.set(Layer.BACK, backLayer);
+        layers.set(Layer.CHAR, charLayer);
+        layers.set(Layer.FORE, foreLayer);
 
         // Create and add the object label
         nameText.setFormat("assets/fonts/PIXELADE.TTF");
