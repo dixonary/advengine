@@ -30,7 +30,7 @@ class Object extends FlxSprite {
 
     public function new(X:Int, Y:Int,?asset:String) {
         super();
-        if(asset == null) loadGraphic('assets/images/$n.png');
+        if(asset == null) loadGraphic('assets/images/$name.png');
         else              loadGraphic('assets/images/$asset.png');
 
         scale.set(room.scaleFactor, room.scaleFactor);
@@ -59,7 +59,7 @@ class Object extends FlxSprite {
     /* Helper Functions */
 
     // Shorthand for name of object.
-    public function get_n() {
+    public function get_name() {
         if(customName != "") return customName;
         return getClass().getClassName().toLowerCase();
     }
@@ -123,7 +123,7 @@ class Object extends FlxSprite {
 
     public function walkToObject(other:Class<Object>, direction:Direction) {
 
-        var ob = currentRoom.get(ne);
+        var ob = currentRoom.get(other);
 
         var nx = 0.0;
         if(x < ob.x - dist - width)
