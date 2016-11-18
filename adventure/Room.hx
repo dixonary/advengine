@@ -1,5 +1,7 @@
 package adventure;
 
+import flixel.FlxG;
+
 class Room extends Object {
 
     public var objects:Array<Object> = [];
