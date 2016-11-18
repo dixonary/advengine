@@ -103,8 +103,8 @@ class Object extends FlxSprite {
     // How far apart are these two things in scaled pixels?
     public function pixelDistance(Other:Object):Int {
         if(x+width>Other.x && Other.x+Other.width > x) return 0;
-        else if(x+width<=Other.x) return cast (Other.x-x-width)/room.SCALE_FACTOR;
-        else                      return cast (x-Other.x-Other.width)/room.SCALE_FACTOR;
+        else if(x+width<=Other.x) return cast (Other.x-x-width)/room.scaleFactor;
+        else                      return cast (x-Other.x-Other.width)/room.scaleFactor;
     }
 
     public function tileX(){
