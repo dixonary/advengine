@@ -1,7 +1,4 @@
 package adventure;
-using Objects;
-using Rooms;
-using Definitions;
 using Lambda;
 import flixel.FlxBasic;
 import flixel.group.FlxGroup;
