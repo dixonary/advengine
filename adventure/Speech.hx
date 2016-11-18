@@ -8,9 +8,9 @@ class Speech extends FlxSpriteGroup {
     public var text:FlxText;
     var age:Float=0;
     var maxAge:Float = 3;
-    var char:Character;
+    var char:Object;
     public static var SIZE:Int = 48;
-    public function new(s:String,char:Character,?col:Int=0xffffffff,?MaxAge:Float=3):Void {
+    public function new(s:String,char:Object,?col:Int=0xffffffff,?MaxAge:Float=3):Void {
         super();
         text = new FlxText(0,0,1000,s);
         text.setFormat("assets/fonts/PIXELADE.TTF");
@@ -43,7 +43,7 @@ class DialogOption extends Speech {
     var num:Int;
     var content:String;
 
-    public function new(s:String, char:Character,
+    public function new(s:String, char:Object,
             num:Int, ?then:Void->Void = null) {
         super('$num. $s',char, 0xffffff00,9999999);
         content = s;
