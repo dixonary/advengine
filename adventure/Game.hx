@@ -106,7 +106,7 @@ class Game extends FlxState {
                 nameText.text = "";
 
             // Left/right click with open hand
-            if(objUsing == null) {
+            if(Global.objUsing == null) {
                 if(FlxG.mouse.justPressed)
                     if(k != null) k.v_use();
                 if(FlxG.mouse.justPressedRight)
@@ -116,8 +116,8 @@ class Game extends FlxState {
             // Left/right click with object in hand
             else {
                 var p = FlxG.mouse.getPosition();
-                objUsing.x = p.x-objUsing.width/2;
-                objUsing.y = p.y-objUsing.width/2;
+                Global.objUsing.x = p.x-objUsing.width/2;
+                Global.objUsing.y = p.y-objUsing.width/2;
                 FlxG.mouse.visible = false;
                 if(FlxG.mouse.justPressed){
                     if(k != null) {
