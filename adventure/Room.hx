@@ -3,6 +3,7 @@ package adventure;
 import flixel.FlxG;
 using Reflect;
 using Type;
+using Std;
 
 class Room extends Object {
 
