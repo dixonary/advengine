@@ -83,7 +83,7 @@ class Game extends FlxState {
 
             // Create a list of possible objects to interact with
             var os = Global.currentRoom.objects.copy();
-            for(o in Global.inventory.objects) if(o != objUsing) os.push(o);
+            for(o in Global.inventory.objects) if(o != Global.objUsing) os.push(o);
             var k = os.find(function(o) {
                 return o.name != "player"
                     && o.hidden == false
