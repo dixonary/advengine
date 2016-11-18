@@ -84,8 +84,8 @@ class Object extends FlxSprite {
 
     // Work out where this object should be placed.
     public function roomPos(X:Float,Y:Float) {
-        return {x:currentRoom.x + X*Game.SCALE_FACTOR,
-                y:currentRoom.y + Y*Game.SCALE_FACTOR};
+        return {x:room.x + X*Game.SCALE_FACTOR,
+                y:room.y + Y*Game.SCALE_FACTOR};
     }
 
     // Is the mouse hovering over this?
@@ -111,7 +111,7 @@ class Object extends FlxSprite {
     }
 
     public function tileX(){
-        return Math.floor((x - currentRoom.x)/room.SCALE_FACTOR);
+        return Math.floor((x - room.x)/room.SCALE_FACTOR);
     }
 
     public function die() {
@@ -123,7 +123,7 @@ class Object extends FlxSprite {
 
     public function walkToObject(other:Class<Object>, direction:Direction) {
 
-        var ob = currentRoom.get(other);
+        var ob = room.get(other);
 
         var nx = 0.0;
         if(x < ob.x - dist - width)
