@@ -15,6 +15,8 @@ class Room extends Object {
         layer = ROOM;
     }
 
+    public function create() {}
+
     public function getX(X) {
         return FlxG.width/2 - width/2
             + X * scaleFactor;
