@@ -81,8 +81,8 @@ class Object extends FlxSprite {
 
     // Work out where this object should be placed.
     public function roomPos(X:Float,Y:Float) {
-        return {x:room.x + X*Game.SCALE_FACTOR,
-                y:room.y + Y*Game.SCALE_FACTOR};
+        return {x:room.x + X*room.scaleFactor,
+                y:room.y + Y*room.scaleFactor};
     }
 
     // Is the mouse hovering over this?
