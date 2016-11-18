@@ -53,7 +53,7 @@ class Room extends Object {
     public function get(O:Class<Object>):Dynamic {
         var k = objects.find(function(o){return o.getClass() == O;});
         if(k == null) throw ("no object "+O+" in room!");
-        return o;
+        return k;
     }
 
     public function addObject(O:Object) {
