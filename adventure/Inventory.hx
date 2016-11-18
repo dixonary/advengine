@@ -4,9 +4,9 @@ import flixel.FlxBasic;
 import flixel.group.FlxGroup;
 import flixel.FlxG;
 
-class Inventory extends FlxTypedGroup<SmallObject> {
+class Inventory extends FlxTypedGroup<Object> {
 
-    public var objects:Array<SmallObject> = [];
+    public var objects:Array<Object> = [];
     public static inline var ROWS:Int = 1;
     public static inline var COLS:Int = 5;
     public static inline var SLOT_SIZE:Int = 60;
@@ -23,7 +23,7 @@ class Inventory extends FlxTypedGroup<SmallObject> {
         positionAll();
     }
 
-    public override function add(o:SmallObject):SmallObject {
+    public override function add(o:Object):Object {
         if(objects.indexOf(o) != -1) {
             trace(o.n + " already in inventory!");
             return o;
@@ -43,7 +43,7 @@ class Inventory extends FlxTypedGroup<SmallObject> {
         remove(k);
     }
 
-    public override function remove(o:SmallObject,s:Bool=false):SmallObject {
+    public override function remove(o:Object,s:Bool=false):Object {
         objects.remove(o);
         o.inInventory = false;
         positionAll();
@@ -57,7 +57,7 @@ class Inventory extends FlxTypedGroup<SmallObject> {
             position(o,count++);
     }
 
-    function position(o:SmallObject, k:Int) {
+    function position(o:Object, k:Int) {
         var xslot = k % COLS;
         var yslot = Math.floor(k / COLS);
 
