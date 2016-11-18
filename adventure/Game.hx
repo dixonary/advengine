@@ -108,9 +108,9 @@ class Game extends FlxState {
             // Left/right click with open hand
             if(Global.objUsing == null) {
                 if(FlxG.mouse.justPressed)
-                    if(k != null) k.v_use();
+                    if(k != null) k.use();
                 if(FlxG.mouse.justPressedRight)
-                    if(k != null) k.v_look();
+                    if(k != null) k.look();
             }
 
             // Left/right click with object in hand
@@ -121,13 +121,13 @@ class Game extends FlxState {
                 FlxG.mouse.visible = false;
                 if(FlxG.mouse.justPressed){
                     if(k != null) {
-                        Global.objUsing.v_useOn(k);
+                        Global.objUsing.useOn(k);
                         Global.objUsing = null;
                         FlxG.mouse.visible = true;
                     }
                 }
                 if(FlxG.mouse.justPressedRight) {
-                    objUsing = null;
+                    Global.objUsing = null;
                     FlxG.mouse.visible = true;
                 }
             }

@@ -49,12 +49,9 @@ class Object extends FlxSprite {
         super.update(d);
     }
 
-    public function v_look() {
-        if(field("look") != null) callMethod(field("look"), []);
-    }
-    public function v_use() {
-        if(field("use") != null)  callMethod(field("use"), []);
-    }
+    public function look() {}
+    public function use() {}
+    public function useOn(other:Object) {}
 
     /* Helper Functions */
 
