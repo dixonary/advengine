@@ -91,8 +91,8 @@ class Game extends FlxState {
                     && o.isCursorOverPixels();
             });
             if(k != null) {
-                if(k.n != nameText.text) {
-                    nameText.text = (if (k.hideName) "" else k.n);
+                if(k.name != nameText.text) {
+                    nameText.text = (if (k.hideName) "" else k.name);
                     nameText.fieldWidth = 1000;
                     nameText.offset.x = 0;
                     nameText.setBorderStyle(OUTLINE,0xff000000,2);
