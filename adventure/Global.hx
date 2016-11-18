@@ -20,4 +20,6 @@ class Global {
     // The current room
     public static var currentRoom:Room          = null;
 
+    public static var startingRoom:Room         = null;
+
 }

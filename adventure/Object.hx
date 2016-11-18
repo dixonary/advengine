@@ -28,7 +28,7 @@ class Object extends FlxSprite {
     public var move         :Null<{pos:Float, then:Void->Void}> = null;
     public var speeches     :Array<Speech> = [];
     public var dialogs      :Int = 0;
-    public var room         :Room
+    public var room         :Room;
 
     public function new(X:Int, Y:Int,?asset:String) {
         super();
