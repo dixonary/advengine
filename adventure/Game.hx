@@ -39,7 +39,7 @@ class Game extends FlxState {
     var startingScreen:Class<Room>;
 
     // Set of layers (can access publically)
-    public var layers:Map<Definitions.Layer, FlxGroup> = new Map();
+    public var layers:Map<Layer, FlxGroup> = new Map();
 
     public function new(screen:Class<Room>) {
        startingScreen = screen;
