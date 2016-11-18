@@ -23,7 +23,7 @@ class Object extends FlxSprite {
     public var pixelPerfect :Bool   = true;     // Whether to use pixel perfect hovering
 
     // Internal system stuff
-    public var move         :Null<{pos:Float, then:Void->Void}> = null;
+    public var move         :Null<{x:Float,y:Float, then:Void->Void}> = null;
     public var speeches     :Array<Speech> = [];
     public var dialogs      :Int = 0;
     public var room         :Room;
