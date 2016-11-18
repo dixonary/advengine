@@ -156,7 +156,7 @@ class Game extends FlxState {
         }
 
         var room = Global.rooms.get(R);
-        Global.currentRoom = Global.room;
+        Global.currentRoom = room;
         roomLayer.add(room);
 
         var p = room.get("player");
