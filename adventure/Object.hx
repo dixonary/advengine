@@ -45,11 +45,9 @@ class Object extends FlxSprite {
 
     }
     public function updateScale() {
-        centerOrigin();
         scale.set(room.scaleFactor, room.scaleFactor);
         updateHitbox();
-        x -= width/2;
-        y -= height/2;
+        centerOffsets(true);
     }
 
     override public function update(d) {
