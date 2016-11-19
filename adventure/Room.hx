@@ -9,15 +9,22 @@ using Lambda;
 class Room extends Object {
 
     public var objects:Array<Object> = [];
-    public var scaleFactor:Int = Game.SCALE_FACTOR;
+    public var scaleFactor(default,set):Int = Game.SCALE_FACTOR;
 
     public function new() {
         super(0,0);
         layer = ROOM;
     }
 
+    public function set_scaleFactor(S) {
+        scaleFactor = S;
+        updateScale();
+        return S;
+    }
+
     override public function updateScale() {
         scale.set(scaleFactor, scaleFactor);
+        for(o in objects) o.updateScale();
         updateHitbox();
     }
 
