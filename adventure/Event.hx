@@ -13,7 +13,7 @@ class Event {
 
     public static var roomEvents:Map<Null<Room>,Array<EventTracker>> = new Map();
 
-    public static function run(list:EventList, ?persist:Bool = false) {
+    public static function run(list:EventList, repeatable:Bool = true, ?persist:Bool = false) {
 
         if(list == []) return;
         var room = persist ? null : Global.currentRoom;
@@ -21,7 +21,7 @@ class Event {
         var k = roomEvents.get(room);
 
         if(k == null) k = [];
-        k.push({time:0,list:list});
+        k.push({time:0,list:repeatable?list.copy():list});
 
         roomEvents.set(room,k);
 
