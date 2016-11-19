@@ -37,7 +37,7 @@ class Inventory extends FlxTypedGroup<Object> {
         return super.add(o);
     }
 
-    public function removeByNaame(n:Class<Object>) {
+    public function removeByName(n:Class<Object>) {
         var k = objects.find(function(o){return o.getClass()==n;});
         if(k == null) throw (n +" not found");
         remove(k);
