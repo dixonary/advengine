@@ -25,7 +25,7 @@ class Inventory extends FlxTypedGroup<Object> {
 
     public override function add(o:Object):Object {
         if(objects.indexOf(o) != -1) {
-            trace(o.n + " already in inventory!");
+            trace(o.name + " already in inventory!");
             return o;
         }
         if(objects.length >= ROWS*COLS) {
@@ -37,8 +37,8 @@ class Inventory extends FlxTypedGroup<Object> {
         return super.add(o);
     }
 
-    public function removeByName(n:String) {
-        var k = objects.find(function(o){return o.n==n;});
+    public function removeByNaame(n:Class<Object>) {
+        var k = objects.find(function(o){return o.getClass()==n;});
         if(k == null) throw (n +" not found");
         remove(k);
     }
@@ -53,7 +53,7 @@ class Inventory extends FlxTypedGroup<Object> {
 
     function positionAll() {
         var count=0;
-        for(o in objects) if(cast(FlxG.state,Game).objUsing != o)
+        for(o in objects) if(Global.objUsing != o)
             position(o,count++);
     }
 
