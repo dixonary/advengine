@@ -126,6 +126,8 @@ class Game extends FlxState {
         // Hide names of objects if you can't interact
         nameText.visible = Global.canInteract;
 
+        Event.update(d);
+
     }
 
     public function switchRoom(R:Class<Room>, ?pX:Int, ?pY:Int) {
