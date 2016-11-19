@@ -126,7 +126,7 @@ class Game extends FlxState {
         // Hide names of objects if you can't interact
         nameText.visible = Global.canInteract;
 
-        Event.update(d);
+        Event.update(elapsed);
 
     }
 
