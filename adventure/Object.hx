@@ -41,6 +41,8 @@ class Object extends FlxSprite {
         x = pos.x;
         y = pos.y;
         layer = BACK;
+        offset.set(0,0);
+        origin.set(0,0);
 
 
     }
