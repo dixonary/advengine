@@ -36,10 +36,10 @@ class Object extends FlxSprite {
 
         room = Global.currentRoom;
 
+        updateScale();
         var pos = roomPos(X,Y);
         x = pos.x;
         y = pos.y;
-        updateScale();
         layer = BACK;
 
 
