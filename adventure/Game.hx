@@ -53,6 +53,9 @@ class Game extends FlxState {
         nameText.size = 40;
         add(nameText);
 
+        Global.fader = new Fader();
+        add(Global.fader);
+
         switchRoom(Global.startingRoom);
 
         // Create and add countdown timer (hidden and paused by default)
