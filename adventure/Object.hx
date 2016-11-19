@@ -31,7 +31,6 @@ class Object extends FlxSprite {
 
     public function new(X:Int, Y:Int,?asset:String) {
         super();
-        origin.set(0,0);
         if(asset == null) loadGraphic('assets/images/$name.png');
         else              loadGraphic('assets/images/$asset.png');
 
@@ -46,8 +45,11 @@ class Object extends FlxSprite {
 
     }
     public function updateScale() {
+        centerOrigin();
         scale.set(room.scaleFactor, room.scaleFactor);
         updateHitbox();
+        x -= width/2;
+        y -= height/2;
     }
 
     override public function update(d) {
