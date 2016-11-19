@@ -59,7 +59,7 @@ class Object extends FlxSprite {
         var x = super.loadGraphic(Graphic, Animated, Width, Height, Unique, Key);
         if(room != null) scale.set(room.scaleFactor, room.scaleFactor);
         updateHitbox();
-        width = frameWidth * room.scaleFactor;
+        if(room != null) width = frameWidth * room.scaleFactor;
         offset.set(0,0);
         origin.set(0,0);
         return x;
