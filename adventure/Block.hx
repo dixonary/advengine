@@ -3,7 +3,6 @@ using Reflect;
 using Lambda;
 using Type;
 using Std;
-using Speech;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.math.FlxPoint;
