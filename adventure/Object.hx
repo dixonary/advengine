@@ -170,6 +170,7 @@ class Object extends FlxSprite {
             for(s in speeches)
                 s.kill();
             speeches = [];
+            walk = null;
     }
 
 
