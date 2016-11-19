@@ -150,7 +150,7 @@ class Game extends FlxState {
         if(Global.rooms.get(rname) == null) {
             Global.rooms.set(rname, R.createInstance([]));
             Global.currentRoom = Global.rooms.get(rname);
-            Global.rooms.get(rname).create();
+            Global.currentRoom.create();
         }
 
         var room = Global.rooms.get(rname);
