@@ -46,7 +46,7 @@ class Event {
     }
 
     public static function removeAll(room:Room) {
-        room.set(room, null);
+        roomEvents.set(room, null);
     }
 
 }
