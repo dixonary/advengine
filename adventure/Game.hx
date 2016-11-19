@@ -36,15 +36,8 @@ class Game extends FlxState {
     var charLayer:FlxGroup = new FlxGroup();
     var foreLayer:FlxGroup = new FlxGroup();
 
-    var startingScreen:Class<Room>;
-
     // Set of layers (can access publically)
     public var layers:Map<Layer, FlxGroup> = new Map();
-
-    public function new(screen:Class<Room>) {
-       startingScreen = screen;
-       super();
-    }
 
     override public function create():Void {
 
@@ -63,7 +56,7 @@ class Game extends FlxState {
         nameText.size = 40;
         add(nameText);
 
-        switchRoom(startingScreen);
+        switchRoom(Global.startingRoom);
 
         // Create and add countdown timer (hidden and paused by default)
         Global.countdown = new Countdown();
