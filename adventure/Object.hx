@@ -185,7 +185,7 @@ class Object extends FlxSprite {
     public function option(s:String, ?col:Int = 0xffffffff, ?then:Void->Void):Void {
         if(dialogs == 0) clearSpeeches();
         dialogs++;
-        speeches.push(cast FlxG.state.add(new DialogOption(
+        speeches.push(cast FlxG.state.add(new Speech.DialogOption(
             s,this,speeches.length+1,then)));
     }
     public function endOptions() {
