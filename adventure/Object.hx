@@ -7,6 +7,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.math.FlxPoint;
 import flixel.util.FlxTimer;
+import flixel.system.FlxGraphicAsset;
 using StringTools;
 
 class Object extends FlxSprite {
