@@ -34,6 +34,8 @@ class Object extends FlxSprite {
         if(asset == null) loadGraphic('assets/images/$name.png');
         else              loadGraphic('assets/images/$asset.png');
 
+        room = Global.currentRoom;
+
         scale.set(room.scaleFactor, room.scaleFactor);
         updateHitbox();
 
@@ -42,7 +44,6 @@ class Object extends FlxSprite {
         y = pos.y;
         layer = BACK;
 
-        room = Global.currentRoom;
 
     }
 
