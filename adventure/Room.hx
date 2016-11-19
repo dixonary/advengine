@@ -19,7 +19,7 @@ class Room extends Object {
     public function set_scaleFactor(S) {
         scaleFactor = S;
         updateScale();
-        var pos = roomPos(X,Y);
+        var pos = roomPos(0,0);
         x = pos.x;
         y = pos.y;
         return S;
