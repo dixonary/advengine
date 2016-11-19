@@ -1,5 +1,7 @@
 package adventure;
 using Lambda;
+using Reflect;
+using Type;
 import flixel.FlxBasic;
 import flixel.group.FlxGroup;
 import flixel.FlxG;
