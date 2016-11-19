@@ -21,5 +21,6 @@ class Global {
     public static var currentRoom:Room          = null;
 
     public static var startingRoom:Class<Room>  = null;
+    public static var defaultScaleFactor:Int    = 8;
 
 }

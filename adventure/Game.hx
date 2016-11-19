@@ -24,9 +24,6 @@ class Game extends FlxState {
     // The offset of the room from the top of the screen (guaranteed black space)
     public static var ROOM_TOP   :Int = 50;
 
-    // Used for anything which isn't in a room
-    public static var SCALE_FACTOR:Int = 5;
-
     // The text box which contains the name of objects
     var nameText:FlxText   = new FlxText();
 

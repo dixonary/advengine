@@ -9,7 +9,7 @@ using Lambda;
 class Room extends Object {
 
     public var objects:Array<Object> = [];
-    public var scaleFactor(default,set):Int = Game.SCALE_FACTOR;
+    public var scaleFactor(default,set):Int = Global.defaultScaleFactor;
 
     public function new() {
         super(0,0);
