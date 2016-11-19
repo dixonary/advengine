@@ -16,6 +16,11 @@ class Room extends Object {
         layer = ROOM;
     }
 
+    override public function updateScale() {
+        scale.set(scaleFactor, scaleFactor);
+        updateHitbox();
+    }
+
     public function create() {}
 
     public function getX(X) {

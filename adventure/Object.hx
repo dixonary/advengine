@@ -35,9 +35,7 @@ class Object extends FlxSprite {
         else              loadGraphic('assets/images/$asset.png');
 
         room = Global.currentRoom;
-
-        scale.set(room.scaleFactor, room.scaleFactor);
-        updateHitbox();
+        updateScale();
 
         var pos = roomPos(X,Y);
         x = pos.x;
@@ -45,6 +43,10 @@ class Object extends FlxSprite {
         layer = BACK;
 
 
+    }
+    public function updateScale() {
+        scale.set(room.scaleFactor, room.scaleFactor);
+        updateHitbox();
     }
 
     override public function update(d) {
