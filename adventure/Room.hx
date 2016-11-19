@@ -14,6 +14,7 @@ class Room extends Object {
     public function new() {
         super(0,0);
         layer = ROOM;
+        scaleFactor = Global.defaultScaleFactor;
     }
 
     public function set_scaleFactor(S) {
