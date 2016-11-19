@@ -15,7 +15,7 @@ class Block extends Object {
         super(X,0,"block");
         customName="";
         immovable = true;
-        visible = false;
+        hidden = false;
     }
 
     public override function update(d):Void {
