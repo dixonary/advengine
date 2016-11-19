@@ -16,14 +16,14 @@ class Event {
     public static function run(list:EventList, ?persist:Bool = false) {
 
         if(list == []) return;
-        room = persist ? null : Global.currentRoom;
+        var room = persist ? null : Global.currentRoom;
 
         var k = roomEvents.get(room);
 
         if(k == null) k = [];
         k.push({time:0,list:list});
 
-        roomEvents.set(k);
+        roomEvents.set(room,k);
 
     }
 
