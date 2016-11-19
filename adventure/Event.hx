@@ -54,7 +54,6 @@ class Event {
 }
 
 typedef EventTracker = {time:Float, list:EventList};
-typedef EventList = Array<Event>;
 
 typedef Event = {
     time:Float,
