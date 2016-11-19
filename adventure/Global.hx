@@ -23,4 +23,6 @@ class Global {
     public static var startingRoom:Class<Room>  = null;
     public static var defaultScaleFactor:Int    = 8;
 
+    public static var data:Map<String, Dynamic> = new Map();
+
 }
