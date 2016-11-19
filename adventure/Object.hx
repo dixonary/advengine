@@ -52,6 +52,15 @@ class Object extends FlxSprite {
         updateHitbox();
     }
 
+
+    override public function loadGraphic(Graphic:FlxGraphicAsset, Animated:Bool = false, Width:Int = 0, Height:Int = 0, Unique:Bool = false, ?Key:String):FlxSprite {
+        var x = super.loadGraphic(Graphic, Animated, Width, Height, Unique, Key);
+        offset.set(0,0);
+        origin.set(0,0);
+        return x;
+    }
+
+
     override public function update(d) {
         if(move != null) {
             if(Math.abs(move.x-x) < moveSpeed) x = move.x;
