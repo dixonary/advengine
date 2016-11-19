@@ -200,13 +200,13 @@ class Object extends FlxSprite {
     }
 
     public function say(s:String, ?col:Int=0xffffffff, ?maxAge:Float = 3) {
-        speeches.push(cast FlxG.state.add(new Speech(s, this, col, maxAge)));
+        speeches.push(cast cast(FlxG.state,Game).speeches.add(new Speech(s, this, col, maxAge)));
     }
 
     public function option(s:String, ?col:Int = 0xffffffff, ?then:Void->Void):Void {
         if(dialogs == 0) clearSpeeches();
         dialogs++;
-        speeches.push(cast FlxG.state.add(new Speech.DialogOption(
+        speeches.push(cast cast(FlxG.state,Game).speeches.add(new Speech.DialogOption(
             s,this,speeches.length+1,then)));
     }
     public function endOptions() {

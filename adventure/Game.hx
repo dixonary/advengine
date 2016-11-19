@@ -32,6 +32,7 @@ class Game extends FlxState {
     var backLayer:FlxGroup = new FlxGroup();
     var charLayer:FlxGroup = new FlxGroup();
     var foreLayer:FlxGroup = new FlxGroup();
+    public var speeches:FlxGroup = new FlxGroup();
 
     // Set of layers (can access publically)
     public var layers:Map<Layer, FlxGroup> = new Map();
@@ -43,6 +44,7 @@ class Game extends FlxState {
         add(backLayer);
         add(charLayer);
         add(foreLayer);
+        add(speeches);
         layers.set(Layer.ROOM, roomLayer);
         layers.set(Layer.BACK, backLayer);
         layers.set(Layer.CHAR, charLayer);
