@@ -9,7 +9,7 @@ class Global {
     public static var objUsing:Object           = null;
 
     // Countdown timer
-    public static var countdown:Countdown       = new Countdown();
+    public static var countdown:Countdown       = null;
 
     // List of all rooms
     public static var rooms:Map<String,Room>    = new Map();

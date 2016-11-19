@@ -66,6 +66,7 @@ class Game extends FlxState {
         switchRoom(startingScreen);
 
         // Create and add countdown timer (hidden and paused by default)
+        Global.countdown = new Countdown();
         add(Global.countdown);
 
         // Add the inventory to the screen (empty by default)

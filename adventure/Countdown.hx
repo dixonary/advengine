@@ -18,6 +18,7 @@ class Countdown extends FlxText {
 
     public function new() {
         super(0,850,420,"");
+        setFormat("assets/fonts/PIXELADE.TTF");
         size = 64;
         alignment = RIGHT;
         color = 0xff000000;
@@ -27,7 +28,6 @@ class Countdown extends FlxText {
 
     override public function update(d) {
         super.update(d);
-        setFormat("assets/fonts/PIXELADE.TTF");
         if(!done && !stopped) {
             time -= d;
             var secs = Std.string(secsLeft).lpad("0",2);
