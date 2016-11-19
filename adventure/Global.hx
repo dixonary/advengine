@@ -25,6 +25,6 @@ class Global {
 
     public static var data:Map<String, Dynamic> = new Map();
 
-    public static var fade:Fade                 = null;
+    public static var fader:Fader                 = null;
 
 }
