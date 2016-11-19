@@ -19,7 +19,7 @@ class Fader extends FlxSprite {
         fadeTarget = 0;
     }
 
-    public funciton fadeOut(time:Float = 1) {
+    public function fadeOut(time:Float = 1) {
         fadeTime = time;
         fadeTarget = 1;
     }
