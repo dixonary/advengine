@@ -37,7 +37,7 @@ class Event {
                     if(e.time <= l.time) {
                         e.run();
                         l.list.remove(e);
-                        if(l == [])
+                        if(l.list == [])
                             lists.remove(l);
                     }
                 }
