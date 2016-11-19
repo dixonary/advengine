@@ -12,7 +12,7 @@ class Global {
     public static var countdown:Countdown       = new Countdown();
 
     // List of all rooms
-    public static var rooms:IMap<Class<Room>,Room>= new Map();
+    public static var rooms:Map<String,Room>    = new Map();
 
     // Inventory
     public static var inventory:Inventory       = new Inventory();
