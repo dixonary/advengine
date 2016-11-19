@@ -66,7 +66,7 @@ class Room extends Object {
             y:Game.ROOM_HEIGHT/2-height/2+Game.ROOM_TOP};
     }
 
-    public function get(O:Class<Object>):Object {
+    public function get(O:Class<Object>):Dynamic {
         var k = objects.find(function(o){return o.getClass() == O;});
         if(k == null) throw ("no object "+O+" in room!");
         return k;
