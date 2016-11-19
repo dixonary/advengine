@@ -46,7 +46,33 @@ class Object extends FlxSprite {
     }
 
     override public function update(d) {
+        if(walk != null) {
+            if(Math.abs(move.x-x) < moveSpeed) x = move.x;
+            if(Math.abs(move.y-y) < moveSpeed) y = move.y;
+
+            if(Math.abs(move.x-x) < moveSpeed && Math.abs(move.y-y) < moveSpeed) {
+                var pmove = move;
+                move = null;
+                if(pmove.then != null) pmove.then();
+            }
+            else {
+                x += moveSpeed * (move.x-x>0?1:-1);
+                y += moveSpeed * (move.y-y>0?1:-1);
+            }
+        }
+
+        //updateHitbox();
+        //offset.x +=((x-currentRoom.x) % Game.SCALE_FACTOR);
+
+        for(i in 0...speeches.length) {
+            var s = speeches[i];
+            s.text.visible = true;
+            s.x = x+width/2-s.width/2;
+            s.y = y-(0.3+speeches.length-i)*Speech.SIZE;
+        }
+
         super.update(d);
+
     }
 
     public function look() {}
@@ -170,7 +196,7 @@ class Object extends FlxSprite {
             for(s in speeches)
                 s.kill();
             speeches = [];
-            walk = null;
+            move = null;
     }
 
 
