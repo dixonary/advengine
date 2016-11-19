@@ -46,7 +46,7 @@ class Object extends FlxSprite {
     }
 
     override public function update(d) {
-        if(walk != null) {
+        if(move != null) {
             if(Math.abs(move.x-x) < moveSpeed) x = move.x;
             if(Math.abs(move.y-y) < moveSpeed) y = move.y;
 
