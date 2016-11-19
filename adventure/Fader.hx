@@ -10,7 +10,7 @@ class Fader extends FlxSprite {
 
     public function new() {
         super();
-        makeGraphic(FlxG.width, Game.ROOM_HEIGHT+ROOM_TOP*2);
+        makeGraphic(FlxG.width, Game.ROOM_HEIGHT+Game.ROOM_TOP*2);
         alpha = 0;
     }
 
@@ -24,7 +24,7 @@ class Fader extends FlxSprite {
         fadeTarget = 1;
     }
 
-    public function update(d) {
+    public override function update(d) {
         visible = true;
         if(fadeTarget == 0) {
             alpha -= d/fadeTime;
