@@ -24,7 +24,7 @@ class Fader extends FlxSprite {
         fadeTarget = 1;
     }
 
-    public override function update(d) {
+    public override function update(d:Float) {
         visible = true;
         if(fadeTarget == 0) {
             alpha -= d/fadeTime;
