@@ -36,12 +36,12 @@ class Game extends FlxState {
     var charLayer:FlxGroup = new FlxGroup();
     var foreLayer:FlxGroup = new FlxGroup();
 
-    var startingScreen:String;
+    var startingScreen:Class<Room>;
 
     // Set of layers (can access publically)
     public var layers:Map<Layer, FlxGroup> = new Map();
 
-    public function new(screen:String) {
+    public function new(screen:Class<Room>) {
        startingScreen = screen;
        super();
     }
@@ -137,20 +137,22 @@ class Game extends FlxState {
 
     }
 
-    public function switchRoom(R:String, ?pX:Int, ?pY:Int) {
+    public function switchRoom(R:Class<Room>, ?pX:Int, ?pY:Int) {
 
         if(Global.currentRoom != null) {
             Global.currentRoom.v_leave();
             roomLayer.clear();
         }
 
-        if(Global.rooms.get(R) == null) {
-            Global.rooms.set(R, R.getClass().createInstance([]));
-            Global.currentRoom = Global.rooms.get(R);
-            Global.currentRoom.create();
+        var rname = R.getClassName();
+
+        if(Global.rooms.get(rname) == null) {
+            Global.rooms.set(rname, R.createInstance([]));
+            Global.currentRoom = Global.rooms.get(rname);
+            Global.rooms.get(rname).create();
         }
 
-        var room = Global.rooms.get(R);
+        var room = Global.rooms.get(rname);
         Global.currentRoom = room;
         roomLayer.add(room);
 
