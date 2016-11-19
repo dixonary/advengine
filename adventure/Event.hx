@@ -55,7 +55,3 @@ class Event {
 
 typedef EventTracker = {time:Float, list:EventList};
 
-typedef Event = {
-    time:Float,
-    run:Void->Void
-}
