@@ -137,20 +137,20 @@ class Game extends FlxState {
 
     }
 
-    public function switchRoom(R:Class<Room>, ?pX:Int, ?pY:Int) {
+    public function switchRoom(R:String, ?pX:Int, ?pY:Int) {
 
         if(Global.currentRoom != null) {
             Global.currentRoom.v_leave();
             roomLayer.clear();
         }
 
-        if(Global.rooms.get(R.name) == null) {
-            Global.rooms.set(R.name, R.createInstance([]));
-            Global.currentRoom = Global.rooms.get(R.name);
-            Global.rooms.get(R.name).create();
+        if(Global.rooms.get(R) == null) {
+            Global.rooms.set(R, R.createInstance([]));
+            Global.currentRoom = Global.rooms.get(R);
+            Global.rooms.get(R).create();
         }
 
-        var room = Global.rooms.get(R.name);
+        var room = Global.rooms.get(R);
         Global.currentRoom = room;
         roomLayer.add(room);
 
