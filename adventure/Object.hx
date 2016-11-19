@@ -27,6 +27,7 @@ class Object extends FlxSprite {
     public var speeches     :Array<Speech> = [];
     public var dialogs      :Int = 0;
     public var room         :Room;
+    public var inInventory  :Bool = false;
 
     public function new(X:Int, Y:Int,?asset:String) {
         super();
