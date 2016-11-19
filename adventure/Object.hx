@@ -134,10 +134,10 @@ class Object extends FlxSprite {
     // Is the mouse hovering over this?
     public function isCursorOverPixels():Bool {
         if(pixelPerfect) {
-            var adjustedx = this.getMidpoint().x +
-                (FlxG.mouse.x - this.getMidpoint().x) / this.scale.x;
-            var adjustedy = this.getMidpoint().y +
-                (FlxG.mouse.y - this.getMidpoint().y) / this.scale.y;
+            var adjustedx = this.x +
+                (FlxG.mouse.x - this.x) / this.scale.x;
+            var adjustedy = this.y +
+                (FlxG.mouse.y - this.y) / this.scale.y;
             var adjustedCursorPos = new FlxPoint(adjustedx, adjustedy);
             return pixelsOverlapPoint(adjustedCursorPos);
         }
