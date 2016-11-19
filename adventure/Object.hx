@@ -46,6 +46,7 @@ class Object extends FlxSprite {
     }
     public function updateScale() {
         scale.set(room.scaleFactor, room.scaleFactor);
+        trace(room.scaleFactor);
         updateHitbox();
     }
 
