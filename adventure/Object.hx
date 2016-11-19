@@ -35,11 +35,11 @@ class Object extends FlxSprite {
         else              loadGraphic('assets/images/$asset.png');
 
         room = Global.currentRoom;
-        updateScale();
 
         var pos = roomPos(X,Y);
         x = pos.x;
         y = pos.y;
+        updateScale();
         layer = BACK;
 
 
