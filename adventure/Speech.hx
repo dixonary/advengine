@@ -45,7 +45,7 @@ class DialogOption extends Speech {
 
     public function new(s:String, char:Object,
             num:Int, ?then:Void->Void = null) {
-        super('$num. $s',char, 0xffffff00,9999999);
+        super('$num. $s',char, 0xffffffff,9999999);
         content = s;
         char.dialogs++;
         this.then = then;
