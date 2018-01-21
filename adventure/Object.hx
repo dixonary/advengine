@@ -68,6 +68,7 @@ class Object extends FlxSprite {
 
     override public function update(d) {
         if(move != null) {
+           // trace(move);
             if(Math.abs(move.x-x) < moveSpeed) x = move.x;
             if(Math.abs(move.y-y) < moveSpeed) y = move.y;
 
@@ -77,8 +78,10 @@ class Object extends FlxSprite {
                 if(pmove.then != null) pmove.then();
             }
             else {
-                x += moveSpeed * (move.x-x>0?1:-1);
-                y += moveSpeed * (move.y-y>0?1:-1);
+                if(Math.abs(move.x-x) >= moveSpeed)
+                    x += moveSpeed * (move.x-x>0?1:-1);
+                if(Math.abs(move.y-y) >= moveSpeed)
+                    y += moveSpeed * (move.y-y>0?1:-1);
             }
         }
 
@@ -105,7 +108,12 @@ class Object extends FlxSprite {
     // Shorthand for name of object.
     public function get_name() {
         if(customName != "") return customName;
-        return getClass().getClassName().toLowerCase();
+        var str = getClass().getClassName();
+        var lastDot = str.lastIndexOf(".");
+        if(lastDot != -1) {
+            str = str.substr(lastDot+1);
+        }
+        return str.toLowerCase();
     }
 
     public function get_game() {
@@ -165,7 +173,7 @@ class Object extends FlxSprite {
     public function killEvents() {
     }
 
-    public function walkToObject(other:Class<Object>, direction:Direction) {
+    public function walkToObject(other:Class<Object>, direction:Direction, ?then:Null<Void->Void>) {
 
         var ob = room.get(other);
 
@@ -187,16 +195,16 @@ class Object extends FlxSprite {
 
         switch(direction) {
             case X:
-                walkTo(nx, y);
+                walkTo(nx, y,then);
             case Y:
-                walkTo(x,ny);
+                walkTo(x,ny,then);
             case BOTH:
-                walkTo(nx,ny);
+                walkTo(nx,ny,then);
         }
     }
 
-    public function walkTo(rawX, rawY) {
-        move = {x:rawX, y:rawY};
+    public function walkTo(rawX, rawY, ?then:Null<Void->Void>) {
+        move = {x:rawX, y:rawY, then:then};
     }
 
     public function say(s:String, ?col:Int=0xffffffff, ?maxAge:Float = 3) {
