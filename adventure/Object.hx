@@ -173,12 +173,18 @@ class Object extends FlxSprite {
     public function killEvents() {
     }
 
-    public function walkToObject(other:Class<Object>, direction:Direction, ?then:Null<Void->Void>) {
+    public function walkToObject(other:Class<Object>, direction:Direction, approach:Approach, ?then:Null<Void->Void>) {
 
         var ob = room.get(other);
 
         var nx = 0.0;
-        if(x < ob.x  - width)
+        if(approach == LEFT) {
+            nx = ob.x  - width;
+        }
+        else if(approach == RIGHT) {
+            nx = ob.x + ob.width ;
+        }
+        else if(x < ob.x  - width)
             nx = ob.x  - width;
         else if(x > ob.x + ob.width )
             nx = ob.x + ob.width ;
@@ -228,6 +234,12 @@ class Object extends FlxSprite {
             move = null;
     }
 
+    public function afterAnimation(callback:Void->Void) {
+        animation.finishCallback = function(s) {
+            animation.finishCallback = null;
+            callback();
+        }
+    }
 
 }
 
@@ -235,4 +247,10 @@ enum Direction {
     X;
     Y;
     BOTH;
+}
+
+enum Approach {
+    LEFT;
+    RIGHT;
+    ANY;
 }

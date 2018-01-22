@@ -3,8 +3,7 @@ using Reflect;
 using Lambda;
 using Type;
 using Std;
-using Characters;
-using Speech;
+
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.math.FlxPoint;
@@ -13,9 +12,9 @@ using StringTools;
 
 class Door extends Object {
 
-    var newRoom:String="";
-    var newPlayerX:Int=0;
-    var newPlayerY:Int=0;
+    var newRoom:Class<Room>;
+    var newPlayerX:Int=-1;
+    var newPlayerY:Int=-1;
     var touched:Bool = false;
     var lockedText:String = "It's locked.";
     public var locked:Bool = false;
@@ -29,21 +28,18 @@ class Door extends Object {
         super.update(d);
     }
 
-    function use() {
-        if(pixelDistance(player) > 0) {
-            player.say("I'm too far away from the door.");
-        }
-        else {
-            if(locked) player.say(lockedText);
-            else go();
-        }
+    override function use() {
+        go();
     }
 
     function go() {
-        if(newRoom=="" || (newPlayerX==0&&newPlayerY==0)) {
-            throw "Not enough information to change room!";
+        if (newRoom==null){
+            throw "new room not set on door!";
         }
-        cast(FlxG.state,Game).switchRoom(newRoom,newPlayerX,newPlayerY);
+        if (newPlayerX==-1 && newPlayerY==-1) {
+            throw "X or Y not set on room!";
+        }
+        game.switchRoom(newRoom,newPlayerX,newPlayerY);
     }
 
 }
