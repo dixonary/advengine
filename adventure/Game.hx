@@ -109,6 +109,7 @@ class Game extends FlxState {
                             Global.objUsing = k;
                         }
                         else k.use();
+                    }
                 }
                 if(FlxG.mouse.justPressedRight)
                     if(k != null) k.look();
