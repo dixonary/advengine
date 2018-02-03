@@ -100,7 +100,11 @@ class Object extends FlxSprite {
     }
 
     public function look() {}
-    public function use() {}
+    public function use() {
+        if(inInventory) {
+            game.objUsing = this;
+        }
+    }
     public function useOn(other:Object) {}
 
     /* Helper Functions */

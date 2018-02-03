@@ -103,8 +103,13 @@ class Game extends FlxState {
 
             // Left/right click with open hand
             if(Global.objUsing == null) {
-                if(FlxG.mouse.justPressed)
-                    if(k != null) k.use();
+                if(FlxG.mouse.justPressed) {
+                    if(k != null) {
+                        if(k.inInventory) {
+                            Global.objUsing = k;
+                        }
+                        else k.use();
+                }
                 if(FlxG.mouse.justPressedRight)
                     if(k != null) k.look();
             }
