@@ -37,19 +37,20 @@ class Object extends FlxSprite {
 
         room = Global.currentRoom;
 
-        updateScale();
+        changeScale();
         var pos = roomPos(X,Y);
         x = pos.x;
         y = pos.y;
         layer = BACK;
-        offset.set(0,0);
-        origin.set(0,0);
-
 
     }
-    public function updateScale() {
-        scale.set(room.scaleFactor, room.scaleFactor);
+    public function changeScale(S:Float=-1) {
+        offset.set(width/2,height/2);
+        var s = S==-1?room.scaleFactor:S;
+        scale.set(s, s);
         updateHitbox();
+        width = frameWidth * s;
+        height = frameHeight * s;
         offset.set(0,0);
         origin.set(0,0);
     }
@@ -57,11 +58,7 @@ class Object extends FlxSprite {
 
     override public function loadGraphic(Graphic:FlxGraphicAsset, Animated:Bool = false, Width:Int = 0, Height:Int = 0, Unique:Bool = false, ?Key:String):FlxSprite {
         var x = super.loadGraphic(Graphic, Animated, Width, Height, Unique, Key);
-        if(room != null) scale.set(room.scaleFactor, room.scaleFactor);
-        updateHitbox();
-        if(room != null) width = frameWidth * room.scaleFactor;
-        offset.set(0,0);
-        origin.set(0,0);
+        changeScale();
         return x;
     }
 
