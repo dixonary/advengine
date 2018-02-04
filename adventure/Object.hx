@@ -244,7 +244,7 @@ class Object extends FlxSprite {
         }
     }
 
-    public function get_class() {
+    public function get_type() {
         return Type.getClass(this);
     }
 
