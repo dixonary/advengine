@@ -67,7 +67,7 @@ class Object extends FlxSprite {
 
     override public function update(d) {
 
-        if(Global.objUsing == this)
+        if(inInventory)
             room = Global.currentRoom;
 
 
