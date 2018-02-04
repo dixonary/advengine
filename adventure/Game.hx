@@ -120,7 +120,7 @@ class Game extends FlxState {
                 var p = FlxG.mouse.getPosition();
                 Global.objUsing.x = p.x-Global.objUsing.width/2;
                 Global.objUsing.y = p.y-Global.objUsing.width/2;
-                FlxG.mouse.visible = false;
+                //FlxG.mouse.visible = false;
                 if(FlxG.mouse.justPressed){
                     if(k != null) {
                         Global.objUsing.useOn(k);
