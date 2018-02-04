@@ -15,6 +15,7 @@ class Trigger extends Object {
     public function new(X:Int) {
         super(X,0,"trigger");
         customName="";
+        visible = false;
     }
 
     public override function update(d):Void {
