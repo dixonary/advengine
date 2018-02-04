@@ -19,16 +19,16 @@ class Room extends Object {
 
     public function set_scaleFactor(S) {
         scaleFactor = S;
-        updateScale();
+        changeScale();
         var pos = roomPos(0,0);
         x = pos.x;
         y = pos.y;
         return S;
     }
 
-    override public function updateScale() {
+    override public function changeScale(S:Float=-1) {
         scale.set(scaleFactor, scaleFactor);
-        for(o in objects) o.updateScale();
+        for(o in objects) o.changeScale();
         updateHitbox();
     }
 

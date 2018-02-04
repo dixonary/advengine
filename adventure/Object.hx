@@ -46,6 +46,7 @@ class Object extends FlxSprite {
     }
     public function changeScale(S:Float=-1) {
         offset.set(width/2,height/2);
+        if(room == null) return;
         var s = S==-1?room.scaleFactor:S;
         scale.set(s, s);
         updateHitbox();
