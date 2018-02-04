@@ -125,12 +125,12 @@ class Game extends FlxState {
                     if(k != null) {
                         Global.objUsing.useOn(k);
                         Global.objUsing = null;
-                        FlxG.mouse.visible = true;
+                        //FlxG.mouse.visible = true;
                     }
                 }
                 if(FlxG.mouse.justPressedRight) {
                     Global.objUsing = null;
-                    FlxG.mouse.visible = true;
+                    //FlxG.mouse.visible = true;
                 }
             }
         }
