@@ -16,6 +16,7 @@ class Object extends FlxSprite {
     public var name(get,never)       :String;
     public var layer(default,set)    :Layer;
     public var game(get,never)       :Game;
+    public var type(get,never):Class<Object>;
 
     public var moveSpeed    :Float  = 5;        // How fast the object moves when walking
     public var customName   :String ="";        // Something different to show up
@@ -241,6 +242,10 @@ class Object extends FlxSprite {
             animation.finishCallback = null;
             callback();
         }
+    }
+
+    public function get_class() {
+        return Type.getClass(this);
     }
 
 }
