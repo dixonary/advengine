@@ -66,6 +66,11 @@ class Object extends FlxSprite {
 
 
     override public function update(d) {
+
+        if(Global.objUsing == this)
+            room = Global.currentRoom;
+
+
         if(move != null) {
            // trace(move);
             if(Math.abs(move.x-x) < moveSpeed) x = move.x;
