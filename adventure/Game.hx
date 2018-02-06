@@ -83,8 +83,9 @@ class Game extends FlxState {
             var k = os.find(function(o) {
                 return o.hidden == false
                     && o.overlapsPoint(FlxG.mouse.getPosition())
-                    && o.isCursorOverPixels();
+                    && (!(o.pixelPerfect) || o.isCursorOverPixels());
             });
+            trace(k);
             if(k != null) {
                 if(k.name != nameText.text) {
                     nameText.text = (if (k.hideName) "" else k.name);

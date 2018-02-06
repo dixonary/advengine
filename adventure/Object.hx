@@ -60,6 +60,10 @@ class Object extends FlxSprite {
         origin.set(0,0);
     }
 
+    override public function toString(){
+        return name;
+    }
+
 
     override public function loadGraphic(Graphic:FlxGraphicAsset, Animated:Bool = false, Width:Int = 0, Height:Int = 0, Unique:Bool = false, ?Key:String):FlxSprite {
         var x = super.loadGraphic(Graphic, Animated, Width, Height, Unique, Key);
