@@ -20,7 +20,7 @@ class Door extends Object {
     public var locked:Bool = false;
 
     public function new(x,y,?asset:String) {
-        super(x,y);
+        super(x,y,asset);
         hideName = true;
     }
 
