@@ -23,7 +23,7 @@ class Object extends FlxSprite {
     public var hideName     :Bool   = false;    // Whether to hide the name on hover
     public var hidden       :Bool   = false;    // Whether to allow the object to be clicked / hovered
     public var pixelPerfect :Bool   = true;     // Whether to use pixel perfect hovering
-    public var speechColor  :Int    = 0xff000000;
+    public var speechColor  :Int    = 0xffffffff;
 
 
 

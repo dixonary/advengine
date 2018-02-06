@@ -10,8 +10,8 @@ class Inventory extends FlxTypedGroup<Object> {
 
     public var objects:Array<Object> = [];
     public static inline var ROWS:Int = 1;
-    public static inline var COLS:Int = 5;
-    public static inline var SLOT_SIZE:Int = 60;
+    public static inline var COLS:Int = 3;
+    public static inline var SLOT_SIZE:Int = 120;
 
     static inline var X:Int = 1500;
     static inline var Y:Int = 850;
@@ -23,6 +23,15 @@ class Inventory extends FlxTypedGroup<Object> {
     override public function update(d):Void {
         super.update(d);
         positionAll();
+    }
+
+    public function hasItem(o:Class<Object>) {
+        for(i in objects) {
+            if(i.type == o) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public override function add(o:Object):Object {
