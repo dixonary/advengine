@@ -23,6 +23,9 @@ class Object extends FlxSprite {
     public var hideName     :Bool   = false;    // Whether to hide the name on hover
     public var hidden       :Bool   = false;    // Whether to allow the object to be clicked / hovered
     public var pixelPerfect :Bool   = true;     // Whether to use pixel perfect hovering
+    public var speechColor  :Int    = 0xff000000;
+
+
 
     // Internal system stuff
     public var move         :Null<{x:Float,y:Float, ?then:Void->Void}> = null;
@@ -221,11 +224,11 @@ class Object extends FlxSprite {
         move = {x:rawX, y:rawY, then:then};
     }
 
-    public function say(s:String, ?col:Int=0xffffffff, ?maxAge:Float = 3) {
+    public function say(s:String, ?col:Int=speechColor, ?maxAge:Float = 3) {
         speeches.push(cast cast(FlxG.state,Game).speeches.add(new Speech(s, this, col, maxAge)));
     }
 
-    public function option(s:String, ?col:Int = 0xffffffff, ?then:Void->Void):Void {
+    public function option(s:String, ?col:Int = speechColor, ?then:Void->Void):Void {
         if(dialogs == 0) clearSpeeches();
         dialogs++;
         speeches.push(cast cast(FlxG.state,Game).speeches.add(new Speech.DialogOption(
