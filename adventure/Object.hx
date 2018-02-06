@@ -224,11 +224,13 @@ class Object extends FlxSprite {
         move = {x:rawX, y:rawY, then:then};
     }
 
-    public function say(s:String, ?col:Int=speechColor, ?maxAge:Float = 3) {
+    public function say(s:String, ?col:Null<Int>, ?maxAge:Float = 3) {
+        if(col == null) col = speechColor;
         speeches.push(cast cast(FlxG.state,Game).speeches.add(new Speech(s, this, col, maxAge)));
     }
 
-    public function option(s:String, ?col:Int = speechColor, ?then:Void->Void):Void {
+    public function option(s:String, ?col:Null<Int>, ?then:Void->Void):Void {
+        if(col == null) col = speechColor;
         if(dialogs == 0) clearSpeeches();
         dialogs++;
         speeches.push(cast cast(FlxG.state,Game).speeches.add(new Speech.DialogOption(
