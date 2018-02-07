@@ -87,13 +87,11 @@ class Game extends FlxState {
             for(o in Global.inventory.objects) if(o != Global.objUsing) os.push(o);
             var k = os.find(function(o) {
                 return o.hidden == false
+                    && Global.objUsing != o
                     && o.overlapsPoint(FlxG.mouse.getPosition())
                     && (!(o.pixelPerfect) || o.isCursorOverPixels());
             });
-<<<<<<< HEAD
-=======
-            //trace(k);
->>>>>>> origin/master
+
             if(k != null) {
                 if(k.name != nameText.text) {
                     nameText.text = (if (k.hideName) "" else k.name);
