@@ -11,7 +11,7 @@ class Inventory extends FlxTypedGroup<Object> {
     public var objects:Array<Object> = [];
     public static inline var ROWS:Int = 1;
     public static inline var COLS:Int = 5;
-    public static inline var SLOT_SIZE:Int = 60;
+    public static inline var SLOT_SIZE:Int = 120;
 
     static inline var X:Int = 1500;
     static inline var Y:Int = 850;
