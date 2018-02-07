@@ -78,7 +78,12 @@ class Game extends FlxState {
         if(Global.canInteract) {
 
             // Create a list of possible objects to interact with
-            var os = Global.currentRoom.objects.copy();
+            var os = [];//Global.currentRoom.objects.copy();
+            os = os.concat(cast layers[Layer.FORE].members.copy().filter(function(s)return Std.is(s,Object)));
+            os = os.concat(cast layers[Layer.CHAR].members.copy().filter(function(s)return Std.is(s,Object)));
+            os = os.concat(cast layers[Layer.BACK].members.copy().filter(function(s)return Std.is(s,Object)));
+            os = os.concat(cast layers[Layer.ROOM].members.copy().filter(function(s)return Std.is(s,Object)));
+
             for(o in Global.inventory.objects) if(o != Global.objUsing) os.push(o);
             var k = os.find(function(o) {
                 return o.hidden == false
