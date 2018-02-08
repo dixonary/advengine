@@ -72,7 +72,7 @@ class Object extends FlxSprite {
     }
 
 
-    override public function update(d) {
+    override public function update(d:Float) {
 
         if(inInventory)
             room = Global.currentRoom;
