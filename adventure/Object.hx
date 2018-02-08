@@ -18,7 +18,7 @@ class Object extends FlxSprite {
     public var game(get,never)       :Game;
     public var type(get,never):Class<Object>;
 
-    public var moveSpeed    :Float  = 5;        // How fast the object moves when walking
+    public var moveSpeed    :Float  = 300;      // How fast the object moves when walking
     public var customName   :String ="";        // Something different to show up
     public var hideName     :Bool   = false;    // Whether to hide the name on hover
     public var hidden       :Bool   = false;    // Whether to allow the object to be clicked / hovered
@@ -80,19 +80,20 @@ class Object extends FlxSprite {
 
         if(move != null) {
            // trace(move);
-            if(Math.abs(move.x-x) < moveSpeed) x = move.x;
-            if(Math.abs(move.y-y) < moveSpeed) y = move.y;
+            if(Math.abs(move.x-x) < moveSpeed*d) x = move.x;
+            if(Math.abs(move.y-y) < moveSpeed*d) y = move.y;
 
-            if(Math.abs(move.x-x) < moveSpeed && Math.abs(move.y-y) < moveSpeed) {
+            if(Math.abs(move.x-x) < moveSpeed*d && Math.abs(move.y-y) <
+                    moveSpeed*d) {
                 var pmove = move;
                 move = null;
                 if(pmove.then != null) pmove.then();
             }
             else {
-                if(Math.abs(move.x-x) >= moveSpeed)
-                    x += moveSpeed * (move.x-x>0?1:-1);
-                if(Math.abs(move.y-y) >= moveSpeed)
-                    y += moveSpeed * (move.y-y>0?1:-1);
+                if(Math.abs(move.x-x) >= moveSpeed*d)
+                    x += moveSpeed *d* (move.x-x>0?1:-1);
+                if(Math.abs(move.y-y) >= moveSpeed*d)
+                    y += moveSpeed *d* (move.y-y>0?1:-1);
             }
         }
 
