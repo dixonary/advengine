@@ -1,5 +1,5 @@
 {
-    "name"          : "adventure-engine",
+    "name"          : "advengine",
     "url"           : "https://github.com/dixonary/adventure-engine",
     "license"       : "Public",
     "tags"          : ["cpp","neko","java","system","cross","native", "game", "games", "adventure"],
