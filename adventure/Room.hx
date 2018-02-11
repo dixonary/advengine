@@ -15,7 +15,9 @@ class Room extends Object {
         super(0,0);
         layer = ROOM;
         scaleFactor = Global.defaultScaleFactor;
+        room = this;
     }
+
 
     public function set_scaleFactor(S) {
         scaleFactor = S;
@@ -69,7 +71,9 @@ class Room extends Object {
 
     public function get(O:Class<Object>):Dynamic {
         var k = objects.find(function(o){return o.getClass() == O;});
-        if(k == null) throw ("no object "+O+" in room!");
+        if(k == null) {
+            trace ("no object "+Type.getClassName(O)+" in room!");
+        } 
         return k;
     }
 

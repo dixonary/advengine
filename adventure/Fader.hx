@@ -14,12 +14,12 @@ class Fader extends FlxSprite {
         alpha = 0;
     }
 
-    public function fadeIn(time:Float = 1) {
+    public function fadeIn(time:Float = 2) {
         fadeTime = time;
         fadeTarget = 0;
     }
 
-    public function fadeOut(time:Float = 1) {
+    public function fadeOut(time:Float = 2) {
         fadeTime = time;
         fadeTarget = 1;
     }
