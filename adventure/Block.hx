@@ -19,8 +19,8 @@ class Block extends Object {
     }
 
     public override function update(d):Void {
-        FlxG.collide(this,game.layers.get(CHAR));
         super.update(d);
+        FlxG.collide(this,game.layers.get(CHAR));
     }
 
 }
