@@ -8,6 +8,7 @@ import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.math.FlxMath;
 import flixel.FlxCamera;
+import adventure.Object;
 using Type;
 using Reflect;
 using Lambda;
@@ -117,7 +118,15 @@ class Game extends FlxState {
                         if(k.inInventory) {
                             Global.objUsing = k;
                         }
-                        else k.use();
+                        else {
+                           var p = Global.currentRoom.get(Player);
+                           //note: i hate this
+                           var sup = Type.createEmptyInstance(k.type);
+                           if(p != null && Reflect.compareMethods(Reflect.field(k,"use"),Reflect.field(sup,"use"))) {
+                            p.walkToObject(k.type,Direction.X,Approach.ANY,k.use);
+                           } else k.use();
+
+                        }
                     }
                 }
                 if(FlxG.mouse.justPressedRight)

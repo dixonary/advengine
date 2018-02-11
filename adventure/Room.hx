@@ -16,6 +16,7 @@ class Room extends Object {
         layer = ROOM;
         scaleFactor = Global.defaultScaleFactor;
         room = this;
+        hidden=true;
     }
 
 
