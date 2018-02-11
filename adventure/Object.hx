@@ -3,11 +3,14 @@ using Reflect;
 using Lambda;
 using Type;
 using Std;
+import openfl.display.BitmapData;
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.FlxCamera;
 import flixel.math.FlxPoint;
 import flixel.util.FlxTimer;
 import flixel.system.FlxAssets;
+import flixel.util.FlxColor;
 using StringTools;
 
 class Object extends FlxSprite {
@@ -177,6 +180,33 @@ class Object extends FlxSprite {
         else if(x+width<=Other.x) return cast (Other.x-x-width)/room.scaleFactor;
         else                      return cast (x-Other.x-Other.width)/room.scaleFactor;
     }
+
+
+    override public function pixelsOverlapPoint(point:FlxPoint, Mask:Int = 0xFF, ?Camera:FlxCamera):Bool
+    {
+        if (Camera == null)
+            Camera = FlxG.camera;
+
+        getScreenPosition(_point, Camera);
+        _point.subtractPoint(new FlxPoint(offset.x/scale.x,offset.y/scale.y));
+        _flashPoint.x = (point.x - Camera.scroll.x) - _point.x;
+        _flashPoint.y = (point.y - Camera.scroll.y) - _point.y;
+        
+        point.putWeak();
+        
+        // 1. Check to see if the point is outside of framePixels rectangle
+        if (_flashPoint.x < 0 || _flashPoint.x > frameWidth || _flashPoint.y < 0 || _flashPoint.y > frameHeight)
+        {
+            return false;
+        }
+        else // 2. Check pixel at (_flashPoint.x, _flashPoint.y)
+        {
+            var frameData:BitmapData = updateFramePixels();
+            var pixelColor:FlxColor = frameData.getPixel32(Std.int(_flashPoint.x), Std.int(_flashPoint.y));
+            return pixelColor.alpha * alpha >= Mask;
+        }
+    }
+
 
     public function tileX(){
         return Math.floor((x - room.x)/room.scaleFactor);

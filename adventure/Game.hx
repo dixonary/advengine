@@ -93,6 +93,9 @@ class Game extends FlxState {
             });
 
             if(k != null) {
+                if(FlxG.keys.justPressed.F5) 
+                    trace(k.type.getClassName());
+                
                 if(k.name != nameText.text) {
                     nameText.text = (if (k.hideName) "" else k.name);
                     nameText.fieldWidth = 1000;
