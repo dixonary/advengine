@@ -75,6 +75,7 @@ class Game extends FlxState {
         super.update(elapsed);
 
         if(FlxG.keys.justPressed.Q) Sys.exit(0);
+        if(FlxG.keys.justPressed.F) FlxG.fullscreen = !FlxG.fullscreen;
 
         if(Global.canInteract) {
 
