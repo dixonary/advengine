@@ -18,7 +18,7 @@ class Tick extends FlxSprite {
         
         antialiasing = false;
 
-        makeGraphic(TICK_SIZE, TICK_SIZE, 0x00ffffff);
+        makeGraphic(TICK_SIZE, TICK_SIZE, 0x00ffffff, true);
 
         drawCircle(TICK_SIZE/2,TICK_SIZE/2, TICK_SIZE/2-2, 0xffdddddd);
 
@@ -35,7 +35,7 @@ class Tick extends FlxSprite {
         y = Y;
         angle += Angle;
 
-        x += Math.sin(Angle) * TICK_OFFSET;
+        x += Math.sin(Angle) * TICK_OFFSET - TICK_SIZE/2;
         y -= Math.cos(Angle) * TICK_OFFSET;
 
         callback = Callback;

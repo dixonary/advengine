@@ -121,6 +121,8 @@ class Game extends FlxState {
                             Global.objUsing = k;
                         }
                         else {
+
+                        Tick.clear();
                         add(new Tick.HandTick(k.x+k.width/2,k.y,function() {
                            var p = Global.currentRoom.get(Player);
                            //note: i hate this
@@ -132,7 +134,6 @@ class Game extends FlxState {
                         }));
                         add(new Tick.EyeTick(k.x+k.width/2,k.y,function() {
                            k.look();
-
                         }));
                         }
                     }
@@ -168,6 +169,8 @@ class Game extends FlxState {
     }
 
     public function switchRoom(R:Class<Room>, ?pX:Int, ?pY:Int) {
+
+        Tick.clear();
 
         if(Global.currentRoom != null) {
             Global.currentRoom.v_leave();
