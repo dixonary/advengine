@@ -11,6 +11,7 @@ class Tick extends FlxText {
 
     var TICK_OFFSET:Int = 64;
     static var ticks:Array<Tick> = [];
+    static var dones:Array<Void->Void> = [];
 
     var callback:Void->Void;
 
@@ -49,13 +50,22 @@ class Tick extends FlxText {
 
     }
 
+    public static function onClear(F:Void->Void) {
+        Tick.dones.push(F);
+    }
+
     public static function clear() {
         for(t in Tick.ticks) {
             t.kill();
             t.destroy();
         }
 
+        for(f in Tick.dones) {
+            f();
+        }
+
         Tick.ticks = [];
+        Tick.dones = [];
     }
 
     override public function update(d) {

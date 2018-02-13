@@ -123,8 +123,10 @@ class Object extends FlxSprite {
     public function pop() {
 
         Tick.clear();
-        var minAngle = -90;
-        var maxAngle = 90;
+        Global.canInteract = false;
+
+        var minAngle = -45;
+        var maxAngle = 45;
         var total = ticks.length-1;
         var count = 0;
         for(t in ticks) {
@@ -133,6 +135,10 @@ class Object extends FlxSprite {
                 t.word, t.callback));
             count++;
         }
+
+        Ticks.onClear(function() {
+            Global.canInteract = true;
+        })
 
     }
 
