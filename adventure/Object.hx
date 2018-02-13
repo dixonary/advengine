@@ -123,8 +123,8 @@ class Object extends FlxSprite {
     public function pop() {
 
         Tick.clear();
-        var minAngle = -45;
-        var maxAngle = 45;
+        var minAngle = -90;
+        var maxAngle = 90;
         var total = ticks.length-1;
         var count = 0;
         for(t in ticks) {
