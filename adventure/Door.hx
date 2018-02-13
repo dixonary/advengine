@@ -21,6 +21,10 @@ class Door extends Object {
 
     public function new(x,y,?asset:String) {
         super(x,y,asset);
+
+        ticks = [
+            {word:"Enter", callback:use}
+        ];
     }
 
     public override function update(d):Void {
