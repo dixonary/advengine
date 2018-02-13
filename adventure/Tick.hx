@@ -5,7 +5,7 @@ import flixel.FlxG;
 import flixel.math.FlxPoint;
 using flixel.util.FlxSpriteUtil;
 
-class Tick extends FlxSprite {
+class Tick extends FlxText {
 
     var TICK_SIZE:Int = 64;
     var TICK_OFFSET:Int = 64;
@@ -15,21 +15,11 @@ class Tick extends FlxSprite {
 
     public function new(X:Float,Y:Float,Angle:Float,Callback:Void->Void) {
         super();
-        
+
         antialiasing = false;
-
-        makeGraphic(TICK_SIZE, TICK_SIZE, 0x00ffffff, true);
-
-        drawCircle(TICK_SIZE/2,TICK_SIZE/2, TICK_SIZE/2-2, 0xffdddddd);
-
-        drawPolygon([
-                new FlxPoint(TICK_SIZE*0.5,TICK_SIZE-2),
-                new FlxPoint(TICK_SIZE,TICK_SIZE),
-                new FlxPoint(TICK_SIZE-2,TICK_SIZE*0.5),
-                ], 0xffdddddd);
-
         angle += 45;
 
+        setFormat("assets/fonts/PIXELADE.TTF",40);
 
         x = X;
         y = Y;
@@ -55,10 +45,10 @@ class Tick extends FlxSprite {
 
     override public function update(d) {
         super.update(d);
-        
+
         if(
             Math.pow(FlxG.mouse.x-x-width/2,2) +
-            Math.pow(FlxG.mouse.y-y-height/2,2) < 
+            Math.pow(FlxG.mouse.y-y-height/2,2) <
             TICK_SIZE/2*TICK_SIZE/2 ) {
 
             if(FlxG.mouse.justPressed) {
@@ -76,25 +66,4 @@ class Tick extends FlxSprite {
 
     }
 
-}
-
-class EyeTick extends Tick {
-
-    public function new(X:Float,Y:Float,Callback:Void->Void) {
-        super(X,Y,-45,Callback);
-
-        var x = new FlxSprite(0,0,"assets/images/eye.png");
-        stamp(x);
-        
-    }
-}
-class HandTick extends Tick {
-
-    public function new(X:Float,Y:Float,Callback:Void->Void) {
-        super(X,Y,45,Callback);
-
-        var x = new FlxSprite(0,0,"assets/images/hand.png");
-        stamp(x);
-        
-    }
 }

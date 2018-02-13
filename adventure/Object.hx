@@ -28,6 +28,8 @@ class Object extends FlxSprite {
     public var pixelPerfect :Bool   = true;     // Whether to use pixel perfect hovering
     public var speechColor  :Int    = 0xffffffff;
 
+    var ticks:Array<{word:String,callback:Void->Void} = [];
+
 
 
     // Internal system stuff
@@ -49,6 +51,11 @@ class Object extends FlxSprite {
         x = pos.x;
         y = pos.y;
         layer = BACK;
+
+        ticks = [
+            {word: "LOOK", callback: look},
+            {word: "USE" , callback: use }
+        ];
 
     }
     public function changeScale(S:Float=-1) {
@@ -111,6 +118,23 @@ class Object extends FlxSprite {
         }
 
         super.update(d);
+
+    }
+
+
+    public function pop() {
+
+        Tick.clear();
+        var minAngle = -45;
+        var maxAngle = 45;
+        var total = ticks.length-1;
+        var count = 0;
+        for(t in ticks) {
+            FlxG.state.add(new Tick(
+                x+width/2, y, (maxAngle-minAngle)*count/total + minAngle,
+                t.word, t.callback));
+            count++;
+        }
 
     }
 
@@ -191,9 +215,9 @@ class Object extends FlxSprite {
         _point.subtractPoint(new FlxPoint(offset.x/scale.x,offset.y/scale.y));
         _flashPoint.x = (point.x - Camera.scroll.x) - _point.x;
         _flashPoint.y = (point.y - Camera.scroll.y) - _point.y;
-        
+
         point.putWeak();
-        
+
         // 1. Check to see if the point is outside of framePixels rectangle
         if (_flashPoint.x < 0 || _flashPoint.x > frameWidth || _flashPoint.y < 0 || _flashPoint.y > frameHeight)
         {

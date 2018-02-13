@@ -96,9 +96,9 @@ class Game extends FlxState {
             });
 
             if(k != null) {
-                if(FlxG.keys.justPressed.F5) 
+                if(FlxG.keys.justPressed.F5)
                     trace(k.type.getClassName());
-                
+
                 if(k.name != nameText.text) {
                     nameText.text = (if (k.hideName) "" else k.name);
                     nameText.fieldWidth = 1000;
@@ -121,20 +121,7 @@ class Game extends FlxState {
                             Global.objUsing = k;
                         }
                         else {
-
-                        Tick.clear();
-                        add(new Tick.HandTick(k.x+k.width/2,k.y,function() {
-                           var p = Global.currentRoom.get(Player);
-                           //note: i hate this
-                           var sup = Type.createEmptyInstance(k.type);
-                           if(p != null && Reflect.compareMethods(Reflect.field(k,"use"),Reflect.field(sup,"use"))) {
-                            p.walkToObject(k.type,Direction.X,Approach.ANY,k.use);
-                           } else k.use();
-
-                        }));
-                        add(new Tick.EyeTick(k.x+k.width/2,k.y,function() {
-                           k.look();
-                        }));
+                        k.pop();
                         }
                     }
                 }
@@ -159,6 +146,11 @@ class Game extends FlxState {
                 }
             }
         }
+
+        if(FlxG.mouse.justPressedRight) {
+            Tick.clear();
+        }
+
         // Hide names of objects if you can't interact
         nameText.visible = Global.canInteract;
 
