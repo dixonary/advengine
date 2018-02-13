@@ -94,11 +94,12 @@ class Tick extends FlxText {
     }
 
     function hit() {
+
+        Tick.clear();
+
         if(callback != null) {
             callback();
         }
-
-        Tick.clear();
 
     }
 
