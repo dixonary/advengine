@@ -61,17 +61,15 @@ class Tick extends FlxText {
     override public function update(d) {
         super.update(d);
 
-        offset.y -= Math.sin(floatTime)*room.scaleFactor/2;
+        offset.y -= Math.sin(floatTime)*4;
         floatTime += d*1.25;
         floatTime %= Math.PI*2;
-        offset.y += Math.sin(floatTime)*room.scaleFactor/2;
+        offset.y += Math.sin(floatTime)*4;
 
         if(!allowed) return;
 
         if(
-            Math.pow(FlxG.mouse.x-x-width/2,2) +
-            Math.pow(FlxG.mouse.y-y-height/2,2) <
-            TICK_SIZE/2*TICK_SIZE/2 ) {
+            overlapsPoint(FlxG.mouse.getWorldPosition())) {
             color = 0xff00ffff;
 
             if(FlxG.mouse.justPressed) {
