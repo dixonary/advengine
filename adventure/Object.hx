@@ -28,9 +28,7 @@ class Object extends FlxSprite {
     public var pixelPerfect :Bool   = true;     // Whether to use pixel perfect hovering
     public var speechColor  :Int    = 0xffffffff;
 
-    var ticks:Array<{word:String,callback:Void->Void} = [];
-
-
+    var ticks:Array<{word:String,callback:Void->Void}> = [];
 
     // Internal system stuff
     public var move         :Null<{x:Float,y:Float, ?then:Void->Void}> = null;
