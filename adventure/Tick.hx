@@ -18,14 +18,12 @@ class Tick extends FlxText {
         super();
 
         antialiasing = false;
-        angle += 45;
 
         setFormat("assets/fonts/PIXELADE.TTF",40);
         text = Word;
 
         x = X;
         y = Y;
-        angle += Angle;
 
         x += Math.sin(Angle) * TICK_OFFSET - TICK_SIZE/2;
         y -= Math.cos(Angle) * TICK_OFFSET;
