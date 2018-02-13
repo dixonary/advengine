@@ -121,12 +121,16 @@ class Game extends FlxState {
                             Global.objUsing = k;
                         }
                         else {
-                            if(Tick.ticks.length == 0) {
+                            if(Tick.ticks.length == 0 && Tick.newAllowed) {
                                 k.pop();
                             }
                         }
                     }
                 }
+            }
+
+            if(Tick.ticks.length == 0) {
+                Tick.newAllowed = true;
             }
 
             // Left/right click with object in hand

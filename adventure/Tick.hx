@@ -13,6 +13,8 @@ class Tick extends FlxText {
     public static var ticks:Array<Tick> = [];
     static var dones:Array<Void->Void> = [];
 
+    public static var newAllowed:Bool = true;
+
     var callback:Void->Void;
 
     var floatTime:Float = 0;
@@ -29,6 +31,7 @@ class Tick extends FlxText {
         x = X;
         y = Y;
 
+        Tick.newAllowed = false;
 
         x += Math.sin(Angle) * TICK_OFFSET - TICK_OFFSET/2;
         y -= Math.cos(Angle) * TICK_OFFSET;
