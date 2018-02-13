@@ -129,10 +129,6 @@ class Game extends FlxState {
                 }
             }
 
-            if(Tick.ticks.length == 0) {
-                Tick.newAllowed = true;
-            }
-
             // Left/right click with object in hand
             else {
                 var p = FlxG.mouse.getPosition();
@@ -155,6 +151,10 @@ class Game extends FlxState {
 
         if(FlxG.mouse.justPressedRight) {
             Tick.clear();
+        }
+
+        if(Tick.ticks.length == 0) {
+            Tick.newAllowed = true;
         }
 
         // Hide names of objects if you can't interact
