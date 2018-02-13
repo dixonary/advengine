@@ -39,8 +39,8 @@ class Tick extends FlxText {
         ticks.push(this);
 
         scale.set(0.1,0.1);
-        scale.tween({x:1}, 0.2, {onComplete:function(t) {
-            scale.tween({y:1}, 0.2, {onComplete:function(t) {
+        scale.tween({x:1}, 0.15, {onComplete:function(t) {
+            scale.tween({y:1}, 0.15, {onComplete:function(t) {
                 allowed = true;
             }});
         }});
