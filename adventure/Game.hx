@@ -68,6 +68,7 @@ class Game extends FlxState {
         // Add the inventory to the screen (empty by default)
         add(Global.inventory); // adds the inventory to the screen
 
+
         super.create();
     }
 
@@ -120,6 +121,7 @@ class Game extends FlxState {
                             Global.objUsing = k;
                         }
                         else {
+                        add(new Tick.HandTick(k.x+k.width/2,k.y,function() {
                            var p = Global.currentRoom.get(Player);
                            //note: i hate this
                            var sup = Type.createEmptyInstance(k.type);
@@ -127,11 +129,14 @@ class Game extends FlxState {
                             p.walkToObject(k.type,Direction.X,Approach.ANY,k.use);
                            } else k.use();
 
+                        }));
+                        add(new Tick.EyeTick(k.x+k.width/2,k.y,function() {
+                           k.look();
+
+                        }));
                         }
                     }
                 }
-                if(FlxG.mouse.justPressedRight)
-                    if(k != null) k.look();
             }
 
             // Left/right click with object in hand
@@ -155,6 +160,8 @@ class Game extends FlxState {
         }
         // Hide names of objects if you can't interact
         nameText.visible = Global.canInteract;
+
+        FlxG.mouse.visible = true;
 
         Event.update(elapsed);
 
