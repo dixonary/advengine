@@ -130,6 +130,12 @@ class Object extends FlxSprite {
         var total = ticks.length-1;
         var count = 0;
         for(t in ticks) {
+            if(total == 0) {
+                FlxG.state.add(new Tick(
+                    x+width/2, y, 0,t.word, t.callback));
+                break;
+            }
+
             FlxG.state.add(new Tick(
                 x+width/2, y, (maxAngle-minAngle)*count/total + minAngle,
                 t.word, t.callback));
