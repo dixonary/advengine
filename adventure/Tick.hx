@@ -3,6 +3,7 @@ package adventure;
 import flixel.FlxSprite;
 import flixel.FlxG;
 import flixel.math.FlxPoint;
+import flixel.text.FlxText;
 using flixel.util.FlxSpriteUtil;
 
 class Tick extends FlxText {
