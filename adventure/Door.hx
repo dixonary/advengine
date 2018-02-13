@@ -21,7 +21,6 @@ class Door extends Object {
 
     public function new(x,y,?asset:String) {
         super(x,y,asset);
-        hideName = true;
     }
 
     public override function update(d):Void {
