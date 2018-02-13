@@ -138,7 +138,7 @@ class Object extends FlxSprite {
 
         Ticks.onClear(function() {
             Global.canInteract = true;
-        })
+        });
 
     }
 
