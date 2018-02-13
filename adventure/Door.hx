@@ -23,7 +23,7 @@ class Door extends Object {
         super(x,y,asset);
 
         ticks = [
-            {word:"Enter", callback:use}
+            {word:"ENTER", callback:use}
         ];
     }
 
