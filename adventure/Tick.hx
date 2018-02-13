@@ -14,13 +14,14 @@ class Tick extends FlxText {
 
     var callback:Void->Void;
 
-    public function new(X:Float,Y:Float,Angle:Float,Callback:Void->Void) {
+    public function new(X:Float,Y:Float,Angle:Float,Word:String, Callback:Void->Void) {
         super();
 
         antialiasing = false;
         angle += 45;
 
         setFormat("assets/fonts/PIXELADE.TTF",40);
+        text = Word;
 
         x = X;
         y = Y;
