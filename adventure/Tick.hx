@@ -25,10 +25,13 @@ class Tick extends FlxText {
         x = X;
         y = Y;
 
+
         x += Math.sin(Angle) * TICK_OFFSET - TICK_SIZE/2;
         y -= Math.cos(Angle) * TICK_OFFSET;
 
         callback = Callback;
+
+        setBorderStyle(OUTLINE,0xff000000,2);
 
         ticks.push(this);
 
@@ -50,11 +53,13 @@ class Tick extends FlxText {
             Math.pow(FlxG.mouse.x-x-width/2,2) +
             Math.pow(FlxG.mouse.y-y-height/2,2) <
             TICK_SIZE/2*TICK_SIZE/2 ) {
+            color = 0xff00ffff;
 
             if(FlxG.mouse.justPressed) {
                 hit();
             }
         }
+        else color = 0xffffffff;
     }
 
     function hit() {
