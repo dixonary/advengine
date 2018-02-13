@@ -121,7 +121,9 @@ class Game extends FlxState {
                             Global.objUsing = k;
                         }
                         else {
-                        k.pop();
+                            if(Tick.ticks == []) {
+                                k.pop();
+                            }
                         }
                     }
                 }

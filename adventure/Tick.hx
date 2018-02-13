@@ -10,7 +10,7 @@ using flixel.tweens.FlxTween;
 class Tick extends FlxText {
 
     var TICK_OFFSET:Int = 64;
-    static var ticks:Array<Tick> = [];
+    public static var ticks:Array<Tick> = [];
     static var dones:Array<Void->Void> = [];
 
     var callback:Void->Void;
