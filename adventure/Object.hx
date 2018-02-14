@@ -85,6 +85,9 @@ class Object extends FlxSprite {
         if(inInventory)
             room = Global.currentRoom;
 
+        if(speeches.length > 0) {
+            Global.speaking = true;
+        }
 
         if(move != null) {
            // trace(move);
@@ -123,7 +126,7 @@ class Object extends FlxSprite {
     public function pop() {
 
         Tick.clear();
-        Global.canInteract = false;
+        Global.cutscene = true;
 
         var minAngle = -45;
         var maxAngle = 45;
@@ -143,7 +146,7 @@ class Object extends FlxSprite {
         }
 
         Tick.onClear(function() {
-            Global.canInteract = true;
+            Global.cutscene = false;
         });
 
     }
@@ -305,6 +308,7 @@ class Object extends FlxSprite {
         speeches.push(cast cast(FlxG.state,Game).speeches.add(new Speech.DialogOption(
             s,this,speeches.length+1,then)));
     }
+
     public function endOptions() {
         dialogs = 0;
     }

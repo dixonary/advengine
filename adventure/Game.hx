@@ -84,6 +84,14 @@ class Game extends FlxState {
 
         if(FlxG.keys.justPressed.ESCAPE) menu.toggle();
 
+        if(Global.speaking || Global.cutscene) {
+            Global.canInteract = false;
+        }
+        else {
+            Global.canInteract = true;
+        }
+        Global.speaking = false;
+
         if(Global.canInteract) {
 
             // Create a list of possible objects to interact with
