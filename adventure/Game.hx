@@ -38,6 +38,8 @@ class Game extends FlxState {
     // Set of layers (can access publically)
     public var layers:Map<Layer, FlxGroup> = new Map();
 
+    public static var menu:Menu;
+
     override public function create():Void {
 
         // Create and add layers
@@ -68,6 +70,8 @@ class Game extends FlxState {
         // Add the inventory to the screen (empty by default)
         add(Global.inventory); // adds the inventory to the screen
 
+        menu = new Menu();
+        add(menu);
 
         super.create();
     }
@@ -77,6 +81,8 @@ class Game extends FlxState {
 
         if(FlxG.keys.justPressed.Q) Sys.exit(0);
         if(FlxG.keys.justPressed.F) FlxG.fullscreen = !FlxG.fullscreen;
+
+        if(FlxG.keys.justPressed.ESCAPE) menu.toggle();
 
         if(Global.canInteract) {
 
@@ -120,10 +126,8 @@ class Game extends FlxState {
                         if(k.inInventory) {
                             Global.objUsing = k;
                         }
-                        else {
-                            if(Tick.ticks.length == 0 && Tick.newAllowed) {
-                                k.pop();
-                            }
+                        else if(Tick.ticks.length == 0 && Tick.newAllowed) {
+                            k.pop();
                         }
                     }
                 }
