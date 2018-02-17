@@ -13,7 +13,7 @@ class Speech extends FlxSpriteGroup {
     public function new(s:String,char:Object,?col:Int=0xffffffff,?MaxAge:Float=3):Void {
         super();
         text = new FlxText(0,0,1000,s);
-        text.setFormat("assets/fonts/PIXELADE.TTF");
+        text.setFormat("assets/fonts/pixelade.ttf");
         text.size = 40;
         text.alignment=CENTER;
         add(text);

@@ -138,7 +138,7 @@ class MenuButton extends FlxSpriteGroup {
         text = new FlxText(0,0,W-Global.defaultScaleFactor*2,Word);
         add(text);
 
-        text.setFormat("assets/fonts/PIXELADE.TTF",Std.int(H/3*2),0xffffffff);
+        text.setFormat("assets/fonts/pixelade.ttf",Std.int(H/3*2),0xffffffff);
         text.alignment = CENTER;
         text.x = X + Global.defaultScaleFactor;
         text.y = Y + Global.defaultScaleFactor;

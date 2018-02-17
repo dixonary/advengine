@@ -54,7 +54,7 @@ class Game extends FlxState {
         layers.set(Layer.FORE, foreLayer);
 
         // Create and add the object label
-        nameText.setFormat("assets/fonts/PIXELADE.TTF");
+        nameText.setFormat("assets/fonts/pixelade.ttf");
         nameText.size = 40;
         add(nameText);
 

@@ -25,7 +25,7 @@ class Tick extends FlxText {
 
         antialiasing = false;
 
-        setFormat("assets/fonts/PIXELADE.TTF",40);
+        setFormat("assets/fonts/pixelade.ttf",40);
         text = Word;
 
         x = X;
