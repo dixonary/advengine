@@ -30,9 +30,9 @@ class Menu extends FlxSpriteGroup {
         bg.scale.set(8,8);
         add(bg);
 
-        makeOption(4,0,1,0.5,"Twitter", function() {
+        makeOption(4,0,1,0.5,"T: @jackaphobia", function() {
 
-            var path = "https://twitter.com/Jackaphobia";
+            var path = "https://twitter.com/jackaphobia";
 #if windows
             Sys.command ("start", [ path ]);
 #elseif mac
@@ -42,7 +42,9 @@ class Menu extends FlxSpriteGroup {
 #end
         });
         makeOption(4,0.5,1,0.5,"Exit", function() {
+#if !desktop
             Sys.exit(0);
+#end
         });
         makeOption(3,0,1,1,"Toggle Fullscreen", function() {
             FlxG.fullscreen = !FlxG.fullscreen;

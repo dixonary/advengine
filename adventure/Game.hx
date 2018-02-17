@@ -79,7 +79,9 @@ class Game extends FlxState {
     override public function update(elapsed:Float):Void {
         super.update(elapsed);
 
+#if !html5
         if(FlxG.keys.justPressed.Q) Sys.exit(0);
+#end
         if(FlxG.keys.justPressed.F) FlxG.fullscreen = !FlxG.fullscreen;
 
         if(FlxG.keys.justPressed.ESCAPE) menu.toggle();
