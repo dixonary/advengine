@@ -57,7 +57,7 @@ class Menu extends FlxSpriteGroup {
     public function show() {
         if(showing) return;
         showing = true;
-        Global.canInteract = false;
+        Global.cutscene = true;
         visible = true;
         tween({alpha:1}, 0.4, {onComplete:function(t) {
             interactable = true;
@@ -70,7 +70,7 @@ class Menu extends FlxSpriteGroup {
         showing = false;
         interactable = false;
         tween({alpha:0.00001}, 0.4, {onComplete:function(t) {
-            Global.canInteract = true;
+            Global.cutscene = false;
             y = -FlxG.height*2;
         }});
     }
@@ -79,7 +79,7 @@ class Menu extends FlxSpriteGroup {
         if(interactable) {
             hide();
         }
-        if(Global.canInteract) {
+        if(!Global.cutscene) {
            show();
         }
     }
