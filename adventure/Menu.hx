@@ -42,7 +42,7 @@ class Menu extends FlxSpriteGroup {
 #end
         });
         makeOption(4,0.5,1,0.5,"Exit", function() {
-#if !desktop
+#if desktop
             Sys.exit(0);
 #end
         });
