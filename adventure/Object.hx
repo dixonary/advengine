@@ -55,6 +55,8 @@ class Object extends FlxSprite {
             {word: "USE" , callback: use }
         ];
 
+        pixelPerfectRender = false;
+
     }
     public function changeScale(S:Float=-1) {
         offset.set(width/2,height/2);
