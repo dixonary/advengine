@@ -315,6 +315,12 @@ class Object extends FlxSprite {
         dialogs = 0;
     }
 
+    override public function kill() {
+        super.kill();
+	// Remove from any attached layers
+	cast(FlxG.state,Game).layers[layer].remove(this);
+    }
+
     public function clearSpeeches() {
             for(s in speeches)
                 s.kill();
